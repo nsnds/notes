@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from '../lib/x-store'
 
-Vue.install(Vuex)
+Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {

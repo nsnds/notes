@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>que.js</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{counter}}</p>
+    <p q-text="counter"></p>
+    <p q-html="desc"></p>
+  </div>
+
+  <script src="./compile.js"></script>
+  <script src="./que.js"></script>
+  <script>
+    const app = new Que({
+      el: '#app',
+      data: {
+        counter: 1,
+        desc: `<span style="color: red">que.js</span>`
+      }
+    })
+
+    setInterval(() => {
+      app.counter++
+    }, 1000)
+  </script>
+</body>
+</html>

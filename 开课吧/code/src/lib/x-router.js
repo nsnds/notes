@@ -5,11 +5,14 @@ class VueRouter {
     this.$options = options
 
     this.routeMap = {}
+
+    // 1. new Vue() 创建响应式
     this.app = new Vue({
       data: {
         current: '/'
       }
     })
+    // 2. Vue.util.defineReactive(this, 'current', '/')
   }
 
   init () {
@@ -40,13 +43,14 @@ class VueRouter {
       props: {
         to: String
       },
+      // 不能使用 template：脚手架使用的是运行时版本的 vue，是不带编译器的。
       render (h) {
         return h(
           'a',
           {
             attrs: { href: `#${this.to}` }
           },
-          this.$slots.default
+          this.$slots.default 
         )
 
         // jsx 写法
